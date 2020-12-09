@@ -1,0 +1,16 @@
+version: '3.1'
+services:
+  postgres:
+    image: postgres:11.5
+    container_name: postgres
+    environment:
+      POSTGRES_PASSWORD: ginibong
+    volumes:
+    #  - "~/database:/var/lib/postgresql/data"
+      - "./postgres-initdb:/docker-entrypoint-initdb.d/"
+    ports:
+      - 5432:5432
+
+# CREATE DATABASE giniaccount;
+# CREATE DATABASE ginirecord;
+# CREATE DATABASE ginisuger;

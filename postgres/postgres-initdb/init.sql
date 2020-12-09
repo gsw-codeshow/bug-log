@@ -1,0 +1,3 @@
+CREATE DATABASE giniaccount;
+CREATE DATABASE ginirecord;
+CREATE DATABASE ginisuger;
