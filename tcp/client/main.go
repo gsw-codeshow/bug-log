@@ -5,12 +5,16 @@ import (
 	"fmt"
 	"io"
 	"net"
+	"net/http"
 	"time"
 )
 
 //tcp server 服务端代码
 
 func main() {
+	http.HandleFunc("/demo", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "hello word") //这个写入到w的是输出到客户端的
+	})
 	//定义一个tcp断点
 	var tcpAddr *net.TCPAddr
 	//通过ResolveTCPAddr实例一个具体的tcp断点

@@ -14,3 +14,24 @@ services:
 # CREATE DATABASE giniaccount;
 # CREATE DATABASE ginirecord;
 # CREATE DATABASE ginisuger;
+
+# chmod 0600 ~/.pgpass
+# 127.0.0.1:5432:giniaccount:postgres:ginibong
+# psql -h 127.0.0.1 -p 5432 -U postgres -d giniaccount -c "INSERT INTO "public"."accounts"("id", "created_at", "updated_at", "deleted_at", "phone", "mail", "other_platform_id", "pass_word", "name", "mail_verification", "id_card", "real_name", "platform_type") VALUES (1, '2020-12-08 11:19:41.207508+00', '2020-12-08 11:19:42.575721+00', NULL, '', '', 'gsw2', '', '', 'f', '360721199410030038', '', 7);"
+
+# 免密登录
+# 将密码写在客户端服务器的用户家目录下，创建一个.pgpass文件，并将权限设置为0600，就可以实现了。
+# 文件的格式如下：
+# hostname:port:database:username:password
+  # 1
+# 例如：
+# 172.16.8.100:5432:postgres:postgres:Changeme_123
+
+# psql -h 127.0.0.1 -p 5432 -U postgres -d giniaccount -c "INSERT INTO "public"."game_projects"("app_id", "app_name", "game_status") VALUES ('sf21vhjv42bkb1', '弹力果冻', 1);"
+# psql -h 127.0.0.1 -p 5432 -U postgres -d giniaccount -c "INSERT INTO "public"."game_server_infos" ("app_id","server_id","server_name","notify_url","ca","source_addr") VALUES ('sf21vhjv42bkb1',1,'taptap','http://10.0.0.2:5714/pay/call_back',NULL,NULL);"
+
+# psql -h 127.0.0.1 -p 5432 -U postgres -d giniaccount -f ./postgresql-data/giniaccount.sql
+
+# brew doctor
+# brew install libpq
+# brew link --force libpq
