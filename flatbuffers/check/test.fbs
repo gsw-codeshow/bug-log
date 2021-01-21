@@ -1,0 +1,9 @@
+namespace test_ns;
+
+table MyData {
+    value:int;
+}
+
+table Container {
+    my:MyData;
+}

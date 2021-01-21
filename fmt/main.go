@@ -13,8 +13,8 @@ func RandInt(max int) int {
 }
 
 func main() {
-	// str := fmt.Sprintf("%%%d", 1)
-	// fmt.Println(str)
+	str := fmt.Sprintf("%%%d", 1)
+	fmt.Println(str)
 	for i := 0; i < 1000; i++ {
 		fmt.Println(RandInt(2))
 	}
