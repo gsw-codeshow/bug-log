@@ -24,17 +24,15 @@ func sendMessage() {
 	}
 
 	producer.SetLogger(nullLogger, nsq.LogLevelInfo) // 3. 设置不输出info级别的日志
-
-	for i := 0; i < 5; i++ { // 4. 生产者发布消息
-		message := strconv.Itoa(i)
-		err2 := producer.Publish("one-test", []byte(message)) // 注意one-test　对应消费者consumer.go　保持一致
-		if err2 != nil {
-			log.Panic("生产者推送消息失败!")
+	for {
+		for i := 0; i < 100; i++ { // 4. 生产者发布消息
+			message := strconv.Itoa(i)
+			err2 := producer.Publish("one-test", []byte(message)) // 注意one-test　对应消费者consumer.go　保持一致
+			if err2 != nil {
+				log.Panic("生产者推送消息失败!")
+			}
 		}
 	}
-
-	producer.Publish("one-test", []byte("stop"))
-	producer.Stop() // 5. 生产者停止执行
 }
 
 func main() {

@@ -17,11 +17,7 @@ func doConsumerTask() {
 
 	// 2. 添加处理消息的方法
 	consumer.AddHandler(nsq.HandlerFunc(func(message *nsq.Message) error {
-		// log.Printf("message: %v", string(message.Body))
-
-		if "stop" == string(message.Body) {
-			defer consumer.Stop()
-		}
+		//time.Sleep(time.Second * 10)
 		log.Printf("message: %s", string(message.Body))
 		message.Finish()
 		return nil
